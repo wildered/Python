@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 
-
+"""This script solves the following problem:
+Let there be n guards in a n x m square, where for 1 <= i <= n:
+x_i, y_i, r_i denote the location and sight radius of guard i. The algorithm solves if there is a 
+route possible from (0,0) to (n,m) without being seen by guards.
+Uses graph module
+"""
 
 import graph_module as g
 from math import sqrt
-
 from datetime import datetime
-
-
 startTime = datetime.now()
 
 def solve(width, height, guard_count, guards):
@@ -32,7 +34,6 @@ def solve(width, height, guard_count, guards):
             lower.append(node)
         if y+r >= height:
             upper.append(node)
-        
         counter += 1
         
     for g1 in gs:
@@ -46,11 +47,6 @@ def solve(width, height, guard_count, guards):
                 g1.add_edge(new_e)
     
     #find from left to lower or right, after that from lower to upper
-#    for n1 in left:
-#        Q = [n1]
-#        while len(Q) > 0:
-#            el = Q.pop()
-#            for other in el.connected:
     Q = [guart_t for guart_t in left]
     done = []
     while len(Q) > 0:
@@ -74,17 +70,8 @@ def solve(width, height, guard_count, guards):
             
     return "Escape possible"
 
-
-
-
-
-
-
-
-
-
 if __name__ == "__main__":
-#example case:
+    #example case:
     width = 5
     height = 5
     guard_count = 3
@@ -97,7 +84,6 @@ if __name__ == "__main__":
     print "(Expected: possible)"
     print solve(width, height, guard_count, guard_properties)
     print
-    
     
     width = 5
     height = 5

@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-
 class node:
-    
     def __init__(self, name):
         self.name = name
         self.edges = []
@@ -23,9 +21,7 @@ class node:
     def __str__(self):
         return "Node " + str(self.name)
         
-
 class edge:
-    
     def __init__(self, node1, node2, d):
         self.a = node1
         self.b = node2
@@ -34,12 +30,8 @@ class edge:
     def get_other(self):
         return self.b
     
-
-
 class graph:
-    
-    def __init__(self, d_dic):
-        
+    def __init__(self, d_dic):     
         self.nodes = []
         self.trans_d = {}
         
@@ -49,18 +41,13 @@ class graph:
             self.trans_d[node_name] = new_n
         
         for node1 in self.nodes:
-            
             for node2_name in d_dic[node1.name]:
                 node2 = self.trans_d[node2_name]
                 connection = edge(node1, node2, d_dic[node1.name][node2.name])
                 node1.add_edge(connection)
             
-
-        
-    
-    
 if __name__ == "__main__":
-        
+    #functionality test
     d = {}
     d[1] = {}
     d[2] = {}
@@ -74,17 +61,3 @@ if __name__ == "__main__":
     
     g = graph(d)
         
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-

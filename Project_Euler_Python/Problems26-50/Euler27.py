@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from math import sqrt
 from datetime import datetime
 startTime = datetime.now()
@@ -43,9 +42,8 @@ for k in xrange(-999,1000):
         if max_n > l:   #non-prime is always achieved if n = l (= b), therefore break if all lower have lower potential
             flag= False
             break
-    if not flag:
-        break
-                
+ 
 print end
 print datetime.now() - startTime
-#computation time: 10ms
+#computation time: 0.5s
+

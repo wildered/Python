@@ -5,7 +5,7 @@ Created on Thu Jul 28 19:08:41 2016
 @author: Home
 """
 
-
+from math import factorial as fact
 import math
 from fractions import gcd
 
@@ -63,19 +63,16 @@ def primeFactor(n):
             if True:
                 res.append(factor2)
         return res
-
-
-def fact(k):
-    if k == 0:
-        return 1
-    res = 1
-    for i in range(1, k+1):
-        res *= i
-    return res
     
 def nChoosek(n, k):
-    return fact(n)/fact(k)/fact(n-k)
-
+    if n-k < k:
+        k = n-k
+    f = n
+    res = 1
+    for i in xrange(k):
+        res *= f
+        f -= 1
+    return res/fact(k)
 
 def palindromeCheck(word):
     if type(word) != str:

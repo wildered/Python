@@ -66,8 +66,8 @@ def func():
         idx += 1
 
 func()
-
-print "SOLUTION FOUND: "
+#I am aware that this is not guaranteed to give the lowest sum (it does in this case) and a guess for an
+#upper bound has no argumentation
 print datetime.now() - startTime
 start = 3
 #time 6s

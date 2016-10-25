@@ -1,2 +1,1 @@
-# Python
-Python code
+Here I have various code for solving puzzles related to either Project Euler or programming competitions

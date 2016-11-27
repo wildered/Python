@@ -197,7 +197,8 @@ def solve2():
 
 """Although accuracy is still dependent on number of steps done, 
    this algorithm is completely deterministic, allowing for a lower
-   lower bound to be chosen (100 (20 is enough in this case) vs """
+   lower bound to be chosen (100 (20 is enough in this case) vs
+   10000 for solution 2, and is non-deterministic)."""
    
 print "\nSolution 1: "
 startTime = datetime.now()

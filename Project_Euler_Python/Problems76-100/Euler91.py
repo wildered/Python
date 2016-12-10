@@ -72,6 +72,7 @@ for x in range(1, m+1):
         
 print "Triangle count = " + str(ans)
 print datetime.now() - startTime
+#time: 3ms
 
 
 

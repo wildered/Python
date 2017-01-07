@@ -32,11 +32,11 @@ FIT_sum = 0
 for submatrix_length in range(max_n):
     pivotcol, pivotrow = submatrix_length, submatrix_length
     for pivot_idx in range(pivotcol):
-        mat[pivotrow] = mat[pivotrow] - mat[pivotrow, pivot_idx]/mat[pivot_idx, pivot_idx]*mat[pivot_idx]
+        mat[pivotrow]  -= (mat[pivotrow, pivot_idx]/mat[pivot_idx, pivot_idx])*mat[pivot_idx]
         
     mat[pivotrow] = mat[pivotrow]/mat[pivotrow, pivotcol]
     for pivot_bdx in range(pivotrow):
-        mat[pivot_bdx] = mat[pivot_bdx] - mat[pivot_bdx, pivotcol]/mat[pivotrow, pivotcol] * mat[pivotrow]
+        mat[pivot_bdx] -= (mat[pivot_bdx, pivotcol]/mat[pivotrow, pivotcol])*mat[pivotrow]
     
     n = submatrix_length + 1
     FIT_sum += sum([mat[k, 10]*(n+1)**k for k in range(n)])
@@ -44,3 +44,5 @@ for submatrix_length in range(max_n):
 print "Result = " + str(FIT_sum)
 print timer()-start
 #time: 0.5ms
+
+

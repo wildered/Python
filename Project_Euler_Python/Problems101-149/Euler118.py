@@ -8,18 +8,19 @@ Created on Sat Apr 15 00:08:18 2017
 #most of the time is spent on handling primes, not finding combinations(80ms)
 #total time: 10.3s
 
-
 from eulerTools import sieve_for_primes_to
-
 from datetime import datetime
-startTime = datetime.now()
+
+
+def complement(s):
+    return const.difference(s)
+
 
 #note: 123456789 or a permuation is not prime
+startTime = datetime.now()
 primes = sieve_for_primes_to(98765432+1)
 prime_arr = []
 prime_d = {}
-
-
 
 for p in primes:
     p_str = str(p)
@@ -32,11 +33,9 @@ for p in primes:
             prime_d[p_tuple] += 1
         else:
             prime_d[p_tuple] = 1
-
         
 p_keys = list(prime_d.keys())
 p_keys.sort(reverse=True, key=lambda x: (len(x), x))
-
 
 print("Time spent on primes:", datetime.now() - startTime)
 startTime2 = datetime.now()
@@ -53,12 +52,7 @@ while idx < max_idx:
         l -= 1
     idx += 1
 
-
 const = set("123456789")
-def complement(s):
-    return const.difference(s)
-
-
 totalres = 0
 
 
@@ -80,17 +74,13 @@ def count(curr_set, idx, ways):
             count(new_set, new_idx + 1, new_ways)
         
         new_idx += 1
+
     
-
-
-
 for bdx in range(len(p_keys)):
     count(set(p_keys[bdx]), bdx + 1, prime_d[p_keys[bdx]])
-
 
 print("Result = ", totalres)
 print("Time on algorithm:", datetime.now() - startTime2)
 print("Total time:", datetime.now() - startTime)
 #total time: 10.3s
-
 

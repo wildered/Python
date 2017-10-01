@@ -45,7 +45,28 @@ def primeFactor(n):
     if n != 1:
         res.append(n)
     return res
-    
+
+def primeFactor_listset(n):
+    i = 2
+    res = []
+    while i*2 <= n:
+        if n%i == 0:
+            res.append(i)
+            while n%i == 0:
+                n //= i
+        i += 1
+    if n != 1:
+        res.append(n)
+    return res
+
+def eulerPhi(n):
+    prime_set = primeFactor_listset(n)
+    res = n
+    for p in prime_set:
+        res = res * (p-1) // p
+    return res
+
+
 def nChoosek(n, k):
     if n-k < k:
         k = n-k
